@@ -8,6 +8,8 @@ class CreateRestaurants < ActiveRecord::Migration[6.0]
       t.string :opening_hrs
       t.integer :ratings
       t.integer :capacity
+
+      t.timestamps
     end
   end
 end
