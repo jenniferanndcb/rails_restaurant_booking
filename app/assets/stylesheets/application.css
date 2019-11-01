@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+body {
+  background: url(https://images.unsplash.com/photo-1454537468202-b7ff71d51c2e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2249&q=80);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: Lato;
+}
+
+h1 {
+  color: white;
+  font-weight: 700;
+  font-size: 3em;
+}
+
+#content{
+  text-align: center;
+  padding-top: 25%;
+}
