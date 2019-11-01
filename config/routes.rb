@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show] do 
     resources :bookings, only: [:new, :create] 
   end 
+
+  resources :restaurants, only: [:new, :create]
     
 
   root "welcome#home"
