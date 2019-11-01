@@ -1,6 +1,12 @@
 
 <h3>Hello <%=@user.first_name%>!</h3><br>
 
-<h4>Here are your upcoming restaurant bookings:</h4>
+<h4>Here are your upcoming bookings:</h4>
+<ul>
+<% @user.bookings.each do |b|%>
+  <li><%= b.booking_date %></li>
+  <li><%= b.booking_time %></li>
+  <% end %>
+</ul>
 
-<p>Create a new booking <%= link_to new_booking_path, "here" %>
+<p>Create a new booking <%= link_to "here", new_user_booking_path(@user, @booking) %></p>

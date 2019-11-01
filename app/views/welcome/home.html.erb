@@ -1,9 +1,9 @@
-<div id="content">
+  <div id="content">
 
-<h1>Discover London Restaurants</h1>
-<%=form_with(url: "/search", method: "/get") do%>
-  <%=text_field_tag(:q) %>
-  <%=submit_tag("Search")%>
-<% end %>
+  <h1>Discover London Restaurants</h1>
+  <%=form_with(url: "/search", method: "/get") do%>
+    <%=text_field_tag(:q) %>
+    <%=submit_tag("Search")%>
+  <% end %>
 
-</div>
+  </div>

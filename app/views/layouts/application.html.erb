@@ -32,7 +32,10 @@
         <%# <a class="nav-link" href="#">Sign Up </a> %>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Log In <i class="fas fa-user"></i></a>
+        <%= link_to '/signin', class: "nav-link" do %>
+          Sign In <i class="fas fa-user"></i>
+          <% end %>
+        <%# <a class="nav-link" href="#">Log In <></i></a> %>
       </li>
     </ul>
   </div>

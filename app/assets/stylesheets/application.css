@@ -27,13 +27,23 @@ h1 {
   font-size: 3em;
 }
 
+.box{ 
+  margin:0 auto; 
+  width:600px;
+  padding:20px;
+  background:#575656;
+  opacity: 0.9;
+  border:2px solid #575656;
+}
+
 #content{
   text-align: center;
-  padding-top: 25%;
+  padding-top: 20%;
 }
 
 #form{
   text-align: center;
   padding-top: 10%;
   color: white;
+  
 }
