@@ -1,7 +1,8 @@
 class BookingsController < ApplicationController 
 
   def new 
-    @booking = Booking.new 
+    @booking = current_user.bookings.build(restaurant_id: params[:restaurant_id]) 
+    
   end 
 
   def create 
