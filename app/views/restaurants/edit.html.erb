@@ -1,0 +1,30 @@
+<div class= "box">
+  <div id="form">
+  
+  <h1>Edit Restaurant</h1>
+
+  <%= form_for @restaurant do |f|%>
+    <%= f.label :name, "Restaurant Name:" %><br>
+    <%= f.text_field :name %><br>
+
+    <%= f.label :location, "Address:" %><br>
+    <%= f.text_field :location %><br>
+
+    <%= f.label :website, "Website:" %><br>
+    <%= f.text_field :website %><br>
+
+    <%= f.label :phone_number, "Phone Number:" %><br>
+    <%= f.text_field :phone_number %><br>
+
+    <%= f.label :opening_hrs, "Opening Hours:" %><br>
+    <%= f.text_field :opening_hrs %><br>
+
+    <%= f.label :ratings, "Ratings:"%><br>
+    <%= f.number_field :ratings %><br><br>
+
+    <%= f.submit "Submit Restaurant" %>
+
+  <% end %>
+
+  </div>
+</div>

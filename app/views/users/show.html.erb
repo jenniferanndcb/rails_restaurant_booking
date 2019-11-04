@@ -1,7 +1,7 @@
 
 <h3>Hello <%=@user.first_name%>!</h3><br>
 
-<h4>Here are your upcoming bookings:</h4>
+<h4>Here are your upcoming table bookings:</h4>
 <ul>
 <% @user.bookings.each do |b|%>
   <li><%= b.booking_date %></li>
