@@ -1,7 +1,11 @@
 class UsersController < ApplicationController 
 
   def new 
-    @user = User.new 
+    if !logged_in?
+      @user = User.new
+    else 
+      user_path(current_user) 
+    end  
   end 
 
   def create 
@@ -16,7 +20,11 @@ class UsersController < ApplicationController
   end
 
   def show 
-    @user = User.find_by(:id => params[:id])
+    if logged_in?
+      @user = User.find_by(:id => params[:id])
+    else 
+      root_path
+    end 
   end 
   
   
