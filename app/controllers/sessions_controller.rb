@@ -1,7 +1,11 @@
 class SessionsController < ApplicationController 
 
   def new
-    
+    if !logged_in? 
+      signin_path
+    else 
+      user_path(current_user)
+    end 
   end 
 
   def create

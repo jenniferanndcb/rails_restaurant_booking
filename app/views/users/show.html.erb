@@ -6,6 +6,9 @@
 <% @user.bookings.each do |b|%>
   <li><%= b.booking_date %></li>
   <li><%= b.booking_time %></li>
+  <li><%= b.booking_size %></li>
   <% end %>
 </ul>
+
+<%= link_to "Discover Restaurants in the city", restaurants_path %>
 

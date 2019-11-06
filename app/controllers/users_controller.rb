@@ -1,11 +1,7 @@
 class UsersController < ApplicationController 
 
   def new 
-    if !logged_in?
-      @user = User.new
-    else 
-      user_path(current_user) 
-    end  
+    @user = User.new
   end 
 
   def create 
