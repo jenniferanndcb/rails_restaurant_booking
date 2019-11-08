@@ -1,14 +1,21 @@
 
 <h3>Hello <%=@user.first_name%>!</h3><br>
 
-<h4>Here are your upcoming table bookings:</h4>
-<ul>
-<% @user.bookings.each do |b|%>
-  <li><%= b.booking_date %></li>
-  <li><%= b.booking_time %></li>
-  <li><%= b.booking_size %></li>
+<% if !@user.admin? %>
+
+<h4> Here are your upcoming table bookings:</h4>
+  <ul>
+  <% @user.bookings.each do |b|%>
+    <li><%= b.booking_date %></li>
+    <li><%= b.booking_time %></li>
+    <li><%= b.booking_size %></li>
   <% end %>
 </ul>
 
 <%= link_to "Discover Restaurants in the city", restaurants_path %>
 
+<% else %>
+
+<%= link_to "Add your Restaurant", new_restaurant_path %>
+
+<% end %>
