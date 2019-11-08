@@ -6,6 +6,8 @@ class BookingsController < ApplicationController
   end 
 
   def create 
-
+    booking = current_user.bookings.build(restaurant_id: params[:restaurant_id])
+    booking.confirm_booking 
+    redirect_to user_path(current_user)
   end 
 end 

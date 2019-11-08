@@ -1,4 +1,6 @@
 
+<div class="container">
+<br>
 <h3>Hello <%=@user.first_name%>!</h3><br>
 
 <% if !@user.admin? %>
@@ -16,6 +18,17 @@
 
 <% else %>
 
-<%= link_to "Add your Restaurant", new_restaurant_path %>
+<h4> Here are all your restaurants </h4>
+
+  <ul>
+  <% @user.restaurants.each do |r|%>
+    <li><%= link_to "#{r.name}", restaurant_path(r) %></li>
+
+    <% end %>
+  <% %>
+
+<%= link_to "Create a new Restaurant", new_restaurant_path %>
 
 <% end %>
+
+</div>
