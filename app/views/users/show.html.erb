@@ -8,9 +8,10 @@
 <h4> Here are your upcoming table bookings:</h4>
   <ul>
   <% @user.bookings.each do |b|%>
-    <li><%= b.booking_date %></li>
-    <li><%= b.booking_time %></li>
-    <li><%= b.booking_size %></li>
+    <li> <strong><%= b.restaurant.name %></strong></li>
+    <p>Booking date: <%= b.booking_date %></p>
+    <p>Booking time: <%= b.booking_time.strftime("%H:%M")%><br></p>
+    <p>For <%= b.booking_size %> </p>
   <% end %>
 </ul>
 

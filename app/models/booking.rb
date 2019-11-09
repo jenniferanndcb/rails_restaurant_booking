@@ -2,11 +2,16 @@ class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :restaurant
 
-  def confirm_booking 
-    if !enough_seats? 
-      "Sorry. We do not have any tables for this time. Try to book for a different date or time."
+  def enough_seats?(booking_size)
+    self.restaurant.capacity > booking_size.to_i
+  end 
+  
+  
+  def confirm_booking(booking_size)
+    if enough_seats?(booking_size)
+      
     else 
-      self.restaurant.capacity = self.restaurant.capacity - self.booking_size(params[:booking_size]) 
+      self.restaurant.capacity = self.restaurant.capacity - booking_size.to_i
       "Your table has been booked. See you on #{self.booking_date}."
     end  
   end 
@@ -14,9 +19,13 @@ class Booking < ApplicationRecord
 
   private 
 
-  def enough_seats?
-    binding.pry
-    self.restaurant.capacity > self.booking_size(params[:booking_size]) 
-  end 
+  
+
+  # when trying to book, take the restaurant capacity and 
+  # minus from that the total number of guests
+  # who have bookings at that time.
+  # if booking_size is less than or equal to the remainder
+  # let the booking be made
+  # if not, say, not valid, not enough available seats.
 
 end 

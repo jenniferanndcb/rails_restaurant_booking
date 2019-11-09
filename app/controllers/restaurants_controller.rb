@@ -1,6 +1,7 @@
 class RestaurantsController < ApplicationController 
   before_action :set_restaurant, only: [:show, :edit, :update]
 
+
   def new
     @restaurant = Restaurant.new  
   end 
