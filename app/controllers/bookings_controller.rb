@@ -21,10 +21,6 @@ class BookingsController < ApplicationController
 
   private 
 
-  # def bookings_params
-  #   params.require(:booking).permit(:booking_date, :booking_time, :booking_size, restaurant_attributes: [:restaurant_id])
-  # end
-
   def booking_params 
     params.require(:booking).permit(:booking_date, :booking_time, :booking_size)
   end
