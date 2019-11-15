@@ -6,16 +6,25 @@
 <% if !@user.admin? %>
 
 <h4> Here are your upcoming table bookings:</h4>
-  <ul>
+  <table>
+    <tr>
+      <th>Restaurant</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Party of</th>
+    </tr>
   <% @user.bookings.each do |b|%>
-    <li> <strong><%= b.restaurant.name %></strong></li>
-    <p>Booking date: <%= b.booking_date %></p>
-    <p>Booking time: <%= b.booking_time.strftime("%H:%M")%><br></p>
-    <p>For <%= b.booking_size %> </p>
+    <tr> 
+      <td><%= b.restaurant.name %></td>
+      <td><%= b.booking_date.strftime("%B %e") %></td>
+      <td><%= b.booking_time.strftime("%I:%M %p")%></td>
+      <td><%= b.booking_size %> people </td>
+    
+    </tr>
   <% end %>
-</ul>
+</table>
 
-<%= link_to "Discover Restaurants in the city", restaurants_path %>
+<%= link_to "Discover Restaurants", restaurants_path %>
 
 <% else %>
 

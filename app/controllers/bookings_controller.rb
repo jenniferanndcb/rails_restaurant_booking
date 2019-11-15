@@ -1,8 +1,12 @@
 class BookingsController < ApplicationController 
 
   def new
-    @booking = current_user.bookings.build(:restaurant_id => params[:restaurant_id]) 
-    
+    if !logged_in? 
+      flash[:notice] = "You must be signed in to book a table."
+      redirect_to '/signin'
+    else 
+      @booking = current_user.bookings.build(:restaurant_id => params[:restaurant_id]) 
+    end 
   end 
 
   def create
@@ -10,7 +14,7 @@ class BookingsController < ApplicationController
 
     if booking.enough_seats?(params[:booking][:booking_size].to_i)
       booking.save 
-      flash[:notice] = "Your table has been booked. See you on #{booking.booking_date}."
+      flash[:notice] = "Your table has been booked. See you on #{booking.booking_date.strftime("%A %e of %B")}."
       redirect_to user_path(current_user)
     else  
       flash[:error] = "Sorry. We do not have any tables for this time. Try to book for a different date or time." 

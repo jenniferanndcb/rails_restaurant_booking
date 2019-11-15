@@ -17,14 +17,14 @@ require 'faker'
 # end 
 
 restaurant_list = [
-  ["The Wolsely", "London"],
-  ["Hoppers", "London"], 
-  ["Alston Bar & Beef", "Manchester"],
-  ["Mana", "Manchester"],
-  ["Adam's Restaurant", "Birmingham"], 
-  ["The Gingerman", "Brighton"]
+  ["The Wolsely", "London", "https://www.thewolseley.com", 20],
+  ["Hoppers", "London", "https://www.hopperslondon.com", 30], 
+  ["Alston Bar & Beef", "Manchester", "https://alstonmanchester.co.uk", 30],
+  ["Mana", "Manchester", "https://manarestaurant.co.uk", 15],
+  ["Adam's Restaurant", "Birmingham", "https://www.adamsrestaurant.co.uk", 50], 
+  ["The Gingerman", "Brighton", "gingermanrestaurant.com", 30]
 ]
 
-restaurant_list.each do |name, city| 
-  Restaurant.create(name: name, city: city)
+restaurant_list.each do |name, city, website, capacity| 
+  Restaurant.create(name: name, city: city, website: website, capacity: capacity)
 end 
