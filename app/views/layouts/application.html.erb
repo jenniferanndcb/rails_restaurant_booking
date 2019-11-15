@@ -28,7 +28,9 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav navbar-right">
       
+
      <% if !current_user %> 
+     
       <li class="nav-item">
         <%= link_to new_user_path, class: "nav-link" do %> 
           Sign Up <i class="fas fa-user-plus"></i>
@@ -55,6 +57,7 @@
 <% flash.each do |name, msg| -%>
       <%= content_tag :div, msg, class: name %>
     <% end -%>
+
 
     <%= yield %>
 

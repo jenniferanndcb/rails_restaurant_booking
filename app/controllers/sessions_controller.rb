@@ -15,6 +15,18 @@ class SessionsController < ApplicationController
       redirect_to signin_path 
     end 
   end 
+  
+#omniauth login doesn't work yet...
+  def create_from_fb 
+    user = User.find_or_create_by(email: auth.info.email) do |u| 
+      binding.pry 
+      u.first_name = auth.info.name 
+    end 
+  end 
+
+  def auth 
+    request.env['omniauth.auth']
+  end 
 
   def destroy
     session.delete(:user_id)

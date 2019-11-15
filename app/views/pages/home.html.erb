@@ -1,0 +1,11 @@
+<div id="content">
+
+  <h1>Discover Restaurants</h1>
+  <br>
+    <% @restaurants.select(:city).group(:city).each do |r| %>
+      <div class="city-box">
+      <%= r.city %>
+      </div>
+    <% end %>
+  
+</div>

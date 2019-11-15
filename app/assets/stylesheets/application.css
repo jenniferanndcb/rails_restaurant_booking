@@ -13,8 +13,8 @@
  *= require_tree .
  *= require_self
  */
-body#welcome_home {
-  background: url(https://images.unsplash.com/photo-1454537468202-b7ff71d51c2e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2249&q=80);
+body#pages_home {
+  background:;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -22,7 +22,7 @@ body#welcome_home {
 }
 
 h1 {
-  color: white;
+  color: black;
   font-weight: 700;
   font-size: 3em;
 }
@@ -47,4 +47,10 @@ h1 {
   padding-top: 10%;
   color: white;
   
+}
+
+.city-box{
+  width: 30%;
+  float: left;
+  margin: 1.66% 
 }
