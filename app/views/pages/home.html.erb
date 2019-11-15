@@ -1,10 +1,10 @@
 <div id="content">
 
-  <h1>Discover Restaurants</h1>
+  <h1>Discover Restaurants by city</h1>
   <br>
     <% @restaurants.select(:city).group(:city).each do |r| %>
       <div class="city-box">
-      <%= r.city %>
+      <%= link_to "#{r.city}", restaurants_path %> 
       </div>
     <% end %>
   

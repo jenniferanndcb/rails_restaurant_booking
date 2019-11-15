@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get '/signin', to: "sessions#new"
   post '/signin', to: "sessions#create"
   get '/signout', to: "sessions#destroy"
-  get '/search', to: "pages#search", as: "search_page"
+  # get "/restaurants-in-#{:city}"???
   get '/auth/facebook/callback', to: "sessions#create_from_fb"
   
   root "pages#home"

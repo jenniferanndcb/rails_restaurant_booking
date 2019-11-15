@@ -1,8 +1,13 @@
 
-<ul>
+<table style="width: 80%">
+<tr>
+  <th>Restaurants</th>
+  
 <% @restaurants.each do |r| %>
-  <li><strong><%= link_to r.name, restaurant_path(r) %></strong></li>
-  <p><%= r.location %></p>
-  <p><%= r.website %></p>
+  <tr>
+    <td><strong><%= link_to r.name, restaurant_path(r) %></strong></td>
+    <td><%= link_to "Book Restaurant", new_restaurant_booking_path(r)%></td>
+  </tr>
   <% end %>
-</ul>
+  
+</table>
