@@ -1,0 +1,18 @@
+
+
+ 
+<div id="content">
+    <h1>Book a Table</h1>
+      <h3><%= @booking.restaurant.name%></h3>
+      <p><%= @booking.restaurant.city%></p>
+      <p><%= @booking.restaurant.website%>
+  </div>
+
+<div id="form">
+  <%= form_for [@booking.restaurant, @booking] do |f| %>
+    <%= f.date_field :booking_date, :value => Date.today.strftime("%a %-d %b") %>
+    <%= f.time_field :booking_time, :value => Time.current.strftime("%H:%M") %>
+    <%= f.number_field :booking_size %>
+    <%= f.submit%>
+  <% end %>
+</div>

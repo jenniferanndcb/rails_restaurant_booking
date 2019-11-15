@@ -16,11 +16,13 @@ class SessionsController < ApplicationController
     end 
   end 
   
-#omniauth login doesn't work yet...
   def create_from_fb 
-    user = User.find_or_create_by(email: auth.info.email) do |u| 
-      binding.pry 
-      u.first_name = auth.info.name 
+    @user = User.fb_create(auth)
+    if @user.save 
+      session[:user_id] = @user.id 
+      redirect_to "/"
+    else 
+      render "/signin"
     end 
   end 
 

@@ -6,7 +6,7 @@
 <% if !@user.admin? %>
 
 <h4> Here are your upcoming table bookings:</h4>
-  <table>
+  <table style="width: 80%">
     <tr>
       <th>Restaurant</th>
       <th>Date</th>
@@ -19,6 +19,8 @@
       <td><%= b.booking_date.strftime("%B %e") %></td>
       <td><%= b.booking_time.strftime("%I:%M %p")%></td>
       <td><%= b.booking_size %> people </td>
+      <td><%= link_to "Change details", edit_booking_path(b)%> </td>
+      <td><%= link_to "Cancel Booking", b, method: :destroy, data: {confirm: "Are yousure?"}%></td>
     
     </tr>
   <% end %>

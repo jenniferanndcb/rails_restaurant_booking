@@ -6,6 +6,11 @@ class User < ApplicationRecord
   has_many :bookings 
   has_many :restaurants, through: :bookings 
 
-   
+  def self.fb_create(auth)
+    @user = User.find_or_create_by(email: auth["info"]["email"]) do |u| 
+      u.first_name = auth["info"]["name"] 
+      u.password = SecureRandom.hex(32)
+    end 
+  end 
 
 end 

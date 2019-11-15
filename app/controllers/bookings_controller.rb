@@ -23,6 +23,25 @@ class BookingsController < ApplicationController
 
   end 
 
+  def edit
+    @booking = Booking.find_by(id: params[:id])
+  end 
+
+  def update 
+    @booking = Booking.find_by(id: params[:id])
+    if @booking.update(booking_params)
+      redirect_to user_path(current_user)
+    else 
+      redirect_to edit_booking_path(@booking)
+    end 
+  end 
+  
+  def destroy 
+    booking = Booking.find_by(id: params[:id])
+    booking.delete 
+    redirect_to user_path(current_user)
+  end 
+
   private 
 
   def booking_params 
