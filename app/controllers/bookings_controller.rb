@@ -30,6 +30,7 @@ class BookingsController < ApplicationController
   def update 
     @booking = Booking.find_by(id: params[:id])
     if @booking.update(booking_params)
+      flash[:notice] = "Your booking has been updated."
       redirect_to user_path(current_user)
     else 
       redirect_to edit_booking_path(@booking)

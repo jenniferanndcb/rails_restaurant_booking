@@ -1,4 +1,5 @@
 class Booking < ApplicationRecord 
+  validates :booking_date, presence: :true 
   belongs_to :user
   belongs_to :restaurant
 
