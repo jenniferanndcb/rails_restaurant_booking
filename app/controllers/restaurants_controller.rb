@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController 
-  before_action :set_restaurant, only: [:show, :edit, :update]
+  before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
 
 
   def new
@@ -34,6 +34,10 @@ class RestaurantsController < ApplicationController
     else 
       redirect_to edit_restaurant_path(@restaurant)
     end 
+  end 
+
+  def destroy 
+    @restaurant.delete
   end 
 
   private 

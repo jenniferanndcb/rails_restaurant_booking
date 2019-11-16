@@ -1,11 +1,14 @@
 
 <div class="container">
 <br>
-<h3>Hello <%=@user.first_name%>!</h3><br>
-
+<h3>Hello <%=@user.first_name%>!</h3>
+<p><%= link_to "Edit your details", edit_user_path(@user) %></p>
+<br>
+<br>
 <% if !@user.admin? %>
 
 <h4> Here are your upcoming table bookings:</h4>
+<br>
   <table style="width: 80%">
     <tr>
       <th>Restaurant</th>
@@ -20,12 +23,14 @@
       <td><%= b.booking_time.strftime("%I:%M %p")%></td>
       <td><%= b.booking_size %> people </td>
       <td><%= link_to "Change details", edit_booking_path(b)%> </td>
-      <td><%= link_to "Cancel Booking", b, method: :destroy, data: {confirm: "Are yousure?"}%></td>
+      <td><%= link_to "Cancel Booking", b, method: :delete, data: {confirm: "Are you sure?"}%></td>
     
     </tr>
   <% end %>
 </table>
 
+<br>
+<br>
 <%= link_to "Discover Restaurants", restaurants_path %>
 
 <% else %>

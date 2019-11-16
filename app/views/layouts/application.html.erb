@@ -41,10 +41,9 @@
         <%= link_to '/signin', class: "nav-link" do %>
           Sign In <i class="fas fa-user"></i>
           <% end %>
-        <%# <a class="nav-link" href="#">Log In <></i></a> %>
       <% else %>
       <li class="nav-item">
-        <%=link_to "Account", edit_user_path(current_user)%>
+        <%=link_to "Account", user_path(current_user)%>
       <li class="nav-item">
         <%=link_to "Log Out", signout_path, class: "nav-link" %>
         </li>

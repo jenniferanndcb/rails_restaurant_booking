@@ -1,5 +1,7 @@
 class BookingsController < ApplicationController 
 
+  before_action :set_booking, only: [:edit, :update, :destroy]
+
   def new
     if !logged_in? 
       flash[:notice] = "You must be signed in to book a table."
@@ -20,15 +22,14 @@ class BookingsController < ApplicationController
       flash[:error] = "Sorry. We do not have any tables for this time. Try to book for a different date or time." 
       redirect_to new_restaurant_booking_path(booking.restaurant)
     end 
-
   end 
 
   def edit
-    @booking = Booking.find_by(id: params[:id])
+    # @booking = Booking.find_by(id: params[:id])
   end 
 
   def update 
-    @booking = Booking.find_by(id: params[:id])
+    # @booking = Booking.find_by(id: params[:id])
     if @booking.update(booking_params)
       flash[:notice] = "Your booking has been updated."
       redirect_to user_path(current_user)
@@ -38,12 +39,17 @@ class BookingsController < ApplicationController
   end 
   
   def destroy 
-    booking = Booking.find_by(id: params[:id])
-    booking.delete 
+    # @booking = Booking.find_by(id: params[:id])
+    @booking.destroy 
+    flash[:notice] = "Your booking has been cancelled."
     redirect_to user_path(current_user)
   end 
 
   private 
+
+  def set_booking
+    @booking = Booking.find_by(id: params[:id])
+  end 
 
   def booking_params 
     params.require(:booking).permit(:booking_date, :booking_time, :booking_size)
