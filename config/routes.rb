@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show, :edit, :update]
 
 
-  resources :restaurants do 
+  resources :restaurants, only: [:new, :create, :show, :edit, :update, :destroy] do 
     resources :bookings
   end 
 
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get '/signin', to: "sessions#new"
   post '/signin', to: "sessions#create"
   get '/signout', to: "sessions#destroy"
-  # get "/restaurants-in-#{:city}"???
+  get '/:city', to: "restaurants#index", as: "restaurants_by_city"
   get '/auth/facebook/callback', to: "sessions#create_from_fb"
   
   root "pages#home"

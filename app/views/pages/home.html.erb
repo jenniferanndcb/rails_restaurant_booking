@@ -4,7 +4,7 @@
   <br>
     <% @restaurants.select(:city).group(:city).each do |r| %>
       <div class="city-box">
-      <%= link_to "#{r.city}", restaurants_path %> 
+      <%= link_to "#{r.city}", restaurants_by_city_path(r.city) %> 
       </div>
     <% end %>
   

@@ -25,6 +25,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
 gem 'faker'
+gem 'friendly_id'
 
 
 # Use Active Storage variant
