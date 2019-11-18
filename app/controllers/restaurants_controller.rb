@@ -10,8 +10,9 @@ class RestaurantsController < ApplicationController
     restaurant = current_user.restaurants.build(rest_params_user)
      
     if restaurant.valid?
+      restaurant.save
 
-      redirect_to restaurant_path(@restaurant)
+      redirect_to restaurant_path(restaurant)
     else 
       redirect_to new_restaurant_path 
     end 

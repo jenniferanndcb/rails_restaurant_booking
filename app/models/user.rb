@@ -4,7 +4,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: true 
     
   has_many :bookings 
-  has_many :restaurants, -> {where admin: true}
+  has_many :restaurants
   has_many :restaurants, through: :bookings 
 
   def self.fb_create(auth)
