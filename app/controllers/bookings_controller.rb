@@ -62,18 +62,5 @@ class BookingsController < ApplicationController
   end 
 end 
 
-# {
-#   "authenticity_token" => 
-#     "Rs617/ZZxFZxkFl8eubjhY9kW6GbWFsy+Xfi5aa2iPd04wiSqEEwgjYMxQMXgGUJnkgKNn6B5VyVTPGKBEL9dw==", 
-#   "booking" => 
-#     <ActionController::Parameters {
-#       "booking_date"=>"2019-11-23", 
-#       "booking_time"=>"14:29", 
-#       "booking_size"=>"3"
-#     } permitted: false>, 
-#   "commit"=>"Book a Table", 
-#   "controller"=>"bookings", 
-#   "action"=>"create", 
-#   "restaurant_id"=>"3"
-# }
+
   

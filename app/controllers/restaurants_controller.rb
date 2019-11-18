@@ -7,12 +7,15 @@ class RestaurantsController < ApplicationController
   end 
   
   def create 
-    restaurant = Restaurant.create(restaurant_params)
-    if restaurant.valid? 
-      redirect_to restaurant_path(restaurant)
+    restaurant = current_user.restaurants.build(rest_params_user)
+     
+    if restaurant.valid?
+
+      redirect_to restaurant_path(@restaurant)
     else 
       redirect_to new_restaurant_path 
     end 
+   
   end 
 
   def index
@@ -50,6 +53,13 @@ class RestaurantsController < ApplicationController
   end 
 
   def restaurant_params 
-    params.require(:restaurant).permit(:name,:location,:website,:phone_number,:opening_hrs)
+    params.require(:restaurant).permit(:name,:city,:website,:phone_number,:capacity)
   end 
+
+  def rest_params_user 
+    r_params = restaurant_params 
+    r_params[:user_id] = current_user.id 
+    r_params
+  end 
+  
 end 
