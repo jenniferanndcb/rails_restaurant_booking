@@ -14,4 +14,15 @@ class User < ApplicationRecord
     end 
   end 
 
+  def owned_restaurants(user) 
+  
+    @restaurants = Restaurant.select(:id, :name).where("user_id = #{self.id}")
+  
+  end 
+  
+    # where(user.id == user_id) 
+     
+     
+ 
+
 end 

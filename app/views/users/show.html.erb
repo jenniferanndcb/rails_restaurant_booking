@@ -5,7 +5,7 @@
 <p><%= link_to "Edit your details", edit_user_path(@user) %></p>
 <br>
 <br>
-<% if !@user.admin? %>
+<% if !@user.admin %>
 
 <h4> Here are your upcoming table bookings:</h4>
 <br>
@@ -38,7 +38,8 @@
 <h4> Here are all your restaurants </h4>
 
   <ul>
-  <% @user.restaurants.each do |r|%>
+  <% @restaurants.each do |r|%>
+  
     <li><%= link_to "#{r.name}", restaurant_path(r) %></li>
 
     <% end %>
