@@ -8,7 +8,7 @@
       <p><%= @booking.restaurant.website%>
   </div>
 
-<div id="form">
+
   <%= form_for [@booking.restaurant, @booking] do |f| %>
     <%= f.date_field :booking_date, :value => Date.today.strftime("%a %-d %b") %>
     <%= f.time_field :booking_time, :value => Time.current.strftime("%H:%M") %>
