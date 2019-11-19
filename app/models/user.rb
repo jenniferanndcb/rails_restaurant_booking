@@ -20,9 +20,6 @@ class User < ApplicationRecord
   
   end 
   
-    # where(user.id == user_id) 
      
-     
- 
-
+  
 end 
